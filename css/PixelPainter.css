@@ -1,0 +1,19 @@
+#pixelPainter{
+  background-color: yellow;
+  width: 100%;
+  height: 100%;
+}
+
+#toolBox{
+  background-color: blue;
+  width: 25%;
+  height: 90%;
+  display: inline-block;
+}
+
+#pp-canvas{
+  background-color: red;
+  width: 70%;
+  height: 70%;
+  display: inline-block;
+}
