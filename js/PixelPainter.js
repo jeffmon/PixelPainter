@@ -1,3 +1,6 @@
+
+savedRgbArray = [];
+
 var createToolBox = document.createElement("div");
 createToolBox.id = "toolBox";
 pixelPainter.appendChild(createToolBox);
@@ -6,8 +9,31 @@ var createPPCanvas = document.createElement("div");
 createPPCanvas.id = "pp-canvas";
 pixelPainter.appendChild(createPPCanvas);
 
+function restoreImage(){
+  targetPPCanvas.innerHTML = "";
+  var savedCells = document.getElementsByClassName("savedCell");
+  for (var i = 0; i < savedCells.length; i++) {
+    savedRgbArray.push(savedCells[i].style.backgroundColor);
+  }
+
+  for (var j = 1; j <= savedRgbArray.length; j++){
+    var createCell = document.createElement("div");
+    createCell.className = "cell";
+    createCell.style.backgroundColor = savedRgbArray[j-1];
+    targetPPCanvas.appendChild(createCell);
+    if(j % 17 === 0){
+      targetPPCanvas.appendChild(document.createElement("br"));
+    }
+  }
+
+
+
+
+}
+
 var createSavedBox = document.createElement("div");
 createSavedBox.id = "savedBox";
+createSavedBox.addEventListener("click", restoreImage);
 pixelPainter.appendChild(createSavedBox);
 
 var createColorPalette = document.createElement("div");
@@ -138,6 +164,7 @@ console.log(saved[0].style.backgroundColor);
 
 rgbArray = [];
 
+
 function saveImage(){
   if (rgbArray.length > 0){
     rgbArray = [];
@@ -161,14 +188,5 @@ function saveImage(){
 
 }
 
-// function addImage(){
-//   for (var i = 0; i < rgbArray.length; i++){
-//     var createCell = document.createElement("div");
-//     createCell.className = "saveCell";
-//     savedBox.appendChild(createCell);
-//     if(i % 17 === 0){
-//       savedBox.appendChild(document.createElement("br"));
-//     }
-//   }
-// }
+
 
