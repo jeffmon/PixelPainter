@@ -16,8 +16,6 @@ toolBox.appendChild(createOptions);
 
 var lastColorPicked = null;
 
-
-
 function randoColor(){
   rr = Math.floor(Math.random() *255);
   gg = Math.floor(Math.random() *255);
@@ -51,10 +49,9 @@ var targetPPCanvas = document.getElementById("pp-canvas");
 
 function changeColor(){
   this.style.backgroundColor = lastColorPicked;
-  console.log("hi");
 }
 
-function createCellBlocks(width, height){
+function createCellBlocks(width, height){//create cell blocks
   for(var i = 1; i <= (width * height); i++){
     var createCell = document.createElement("div");
     createCell.className = "cell";
@@ -69,4 +66,33 @@ function createCellBlocks(width, height){
   }
 }
 
-createCellBlocks(5, 5);
+createCellBlocks(12, 12);
+
+var targetCell = document.getElementsByClassName("cell");
+console.log(targetCell);
+
+function eraserAction(){
+  lastColorPicked = "white";
+}
+
+function clearAction(){
+  for(var i = 0; i < targetCell.length; i++){
+    targetCell[i].style.backgroundColor = "white";
+  }
+}
+
+
+
+var createErase = document.createElement("button");
+createErase.className = "buttons";
+createErase.innerHTML = "Eraser";
+createErase.addEventListener("click", eraserAction);
+options.appendChild(createErase);
+
+var createClear = document.createElement("button");
+createClear.className = "buttons";
+createClear.innerHTML = "Clear";
+createClear.addEventListener("click", clearAction);
+options.appendChild(createClear);
+
+
