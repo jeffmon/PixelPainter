@@ -51,6 +51,7 @@ function addColor(){
 var createCurrentColor = document.createElement("div");
 createCurrentColor.id = "currentColor";
 createCurrentColor.style.backgroundColor = lastColorPicked;
+//createCurrentColor.innerHTML = "Current Color";
 colorPalette.appendChild(createCurrentColor);
 
 var targetPPCanvas = document.getElementById("pp-canvas");
@@ -80,9 +81,9 @@ function createCellBlocks(width, height){//create cell blocks
     createCell.addEventListener("mouseover", changeColor);
     createCell.addEventListener("click", changeColor2);
     createCell.addEventListener("click", changeColor3);
-    var dynamicW = 100 / width-2 + "%";
+/*    var dynamicW = 100 / width-2 + "%";
     createCell.style.width = dynamicW;
-    createCell.style.height = dynamicW;
+    createCell.style.height = dynamicW;*/
     targetPPCanvas.appendChild(createCell);
     if(i % width === 0){
       targetPPCanvas.appendChild(document.createElement("br"));
@@ -90,7 +91,7 @@ function createCellBlocks(width, height){//create cell blocks
   }
 }
 
-createCellBlocks(15, 15);
+createCellBlocks(17, 17);
 
 var targetCell = document.getElementsByClassName("cell");
 
