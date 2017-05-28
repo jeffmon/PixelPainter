@@ -6,8 +6,6 @@ var createPPCanvas = document.createElement("div");
 createPPCanvas.id = "pp-canvas";
 pixelPainter.appendChild(createPPCanvas);
 
-
-
 var createColorPalette = document.createElement("div");
 createColorPalette.id = "colorPalette";
 toolBox.appendChild(createColorPalette);
@@ -15,8 +13,6 @@ toolBox.appendChild(createColorPalette);
 var createOptions = document.createElement("div");
 createOptions.id = "options";
 toolBox.appendChild(createOptions);
-
-
 
 var lastColorPicked = null;
 
@@ -39,19 +35,17 @@ function addColor(){
   }
 })();
 
+var targetPPCanvas = document.getElementById("pp-canvas");
+
+(function(){
+  for(var i = 1; i <= 25; i++){
+    var createCell = document.createElement("div");
+    createCell.className = "cell";
+    targetPPCanvas.appendChild(createCell);
+    if(i % 5 === 0){
+      targetPPCanvas.innerHTML+= "<br>";
+    }
+  }
 
 
-// var createColorChoice = document.createElement("div");
-// createColorChoice.className = "colorChoice";
-// createColorChoice.style.backgroundColor = "red";
-// colorPalette.appendChild(createColorChoice);
-
-// var createColorChoice = document.createElement("div");
-// createColorChoice.className = "colorChoice";
-// createColorChoice.style.backgroundColor = "blue";
-// colorPalette.appendChild(createColorChoice);
-
-// var createColorChoice = document.createElement("div");
-// createColorChoice.className = "colorChoice";
-// createColorChoice.style.backgroundColor = "black";
-// colorPalette.appendChild(createColorChoice);
+})();
