@@ -42,19 +42,16 @@ function changeColor(){
   console.log("hi");
 }
 
-(function(){
-  for(var i = 1; i <= 25; i++){
+function createCellBlocks(width, height){
+  for(var i = 1; i <= (width * height); i++){
     var createCell = document.createElement("div");
     createCell.className = "cell";
-    //console.log(changeColor);
     createCell.addEventListener("click", changeColor);
-    //console.log(createCell);
     targetPPCanvas.appendChild(createCell);
-    if(i % 5 === 0){
-      //targetPPCanvas.innerHTML+= "<br>";
+    if(i % width === 0){
       targetPPCanvas.appendChild(document.createElement("br"));
     }
   }
-})();
+}
 
-var targetCell = document.querySelectorAll(".cell")[0];
+createCellBlocks(10, 10);
