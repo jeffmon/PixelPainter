@@ -25,17 +25,20 @@ function randoColor(){
 
 var colorArray = [randoColor(), randoColor(), randoColor()];
 
+
+
 function addColor(){
   lastColorPicked = this.style.backgroundColor;
-  console.log(lastColorPicked);
+  createCurrentColor.style.backgroundColor = lastColorPicked;
 }
+
+
 
 (function(){
   for (var i = 1; i < 26; i++){
     var createColorChoice = document.createElement("div");
     createColorChoice.className = "colorChoice";
     var colorHelper = colorArray[i];
-    console.log(colorHelper);
     createColorChoice.style.backgroundColor = randoColor();
     createColorChoice.addEventListener("click", addColor);
     colorPalette.appendChild(createColorChoice);
@@ -45,17 +48,34 @@ function addColor(){
   }
 })();
 
+var createCurrentColor = document.createElement("div");
+createCurrentColor.id = "currentColor";
+createCurrentColor.style.backgroundColor = lastColorPicked;
+colorPalette.appendChild(createCurrentColor);
+
 var targetPPCanvas = document.getElementById("pp-canvas");
 
 function changeColor(){
+  if(event.buttons === 1){
+    if(event.shiftKey) {
+      this.style.backgroundColor = "white";
+    } else {
+      this.style.backgroundColor = lastColorPicked;
+    }
+  }
+}
+
+function changeColor2(){
   this.style.backgroundColor = lastColorPicked;
 }
+
 
 function createCellBlocks(width, height){//create cell blocks
   for(var i = 1; i <= (width * height); i++){
     var createCell = document.createElement("div");
     createCell.className = "cell";
-    createCell.addEventListener("click", changeColor);
+    createCell.addEventListener("mouseover", changeColor);
+    createCell.addEventListener("click", changeColor2);
     var dynamicW = 100 / width-2 + "%";
     createCell.style.width = dynamicW;
     createCell.style.height = dynamicW;
@@ -69,7 +89,6 @@ function createCellBlocks(width, height){//create cell blocks
 createCellBlocks(12, 12);
 
 var targetCell = document.getElementsByClassName("cell");
-console.log(targetCell);
 
 function eraserAction(){
   lastColorPicked = "white";

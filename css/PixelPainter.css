@@ -1,8 +1,9 @@
 #pixelPainter{
   background-color: yellow;
-  width: 100%;
-  height: 100%;
+  width: 1000px;
+  height: 1000px;
   vertical-align: top;
+  margin: auto;
 }
 
 #toolBox{
@@ -56,6 +57,17 @@
   vertical-align: top;
 }
 
-.buttons{
+.cell:hover {
+  cursor: pointer;
+}
 
+.colorChoice:hover {
+  cursor: pointer;
+}
+
+#currentColor{
+  vertical-align: top;
+  height: 20px;
+  widows: 20px;
+  background-color: white;
 }
