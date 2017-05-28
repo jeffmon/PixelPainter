@@ -37,15 +37,21 @@ function addColor(){
 
 var targetPPCanvas = document.getElementById("pp-canvas");
 
+function changeColor(){
+  this.style.backgroundColor = lastColorPicked;
+  console.log("hi");
+}
+
 (function(){
   for(var i = 1; i <= 25; i++){
     var createCell = document.createElement("div");
     createCell.className = "cell";
+    createCell.addEventListener("click", changeColor);
     targetPPCanvas.appendChild(createCell);
     if(i % 5 === 0){
       targetPPCanvas.innerHTML+= "<br>";
     }
   }
-
-
 })();
+
+var targetCell = document.querySelectorAll(".cell")[0];
