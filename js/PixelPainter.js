@@ -47,6 +47,9 @@ function createCellBlocks(width, height){
     var createCell = document.createElement("div");
     createCell.className = "cell";
     createCell.addEventListener("click", changeColor);
+    var dynamicW = 100 / width-2 + "%";
+    createCell.style.width = dynamicW;
+    createCell.style.height = dynamicW;
     targetPPCanvas.appendChild(createCell);
     if(i % width === 0){
       targetPPCanvas.appendChild(document.createElement("br"));
