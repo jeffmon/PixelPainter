@@ -67,12 +67,19 @@ function changeColor(){
 }
 
 function changeColor2(){
-  this.style.backgroundColor = lastColorPicked;
+  if(event.shiftKey){
+    this.style.backgroundColor = "white";
+  }
+  else if(this.style.backgroundColor = "white"){
+    this.style.backgroundColor = lastColorPicked;
+  }
 }
 
-function changeColor3(){
+//this.style.backgroundColor = lastColorPicked;
+
+/*function changeColor3(){
   this.style.backgroundColor = "white";
-}
+}*/
 
 function createCellBlocks(width, height){//create cell blocks
   for(var i = 1; i <= (width * height); i++){
@@ -80,10 +87,7 @@ function createCellBlocks(width, height){//create cell blocks
     createCell.className = "cell";
     createCell.addEventListener("mouseover", changeColor);
     createCell.addEventListener("click", changeColor2);
-    createCell.addEventListener("click", changeColor3);
-/*    var dynamicW = 100 / width-2 + "%";
-    createCell.style.width = dynamicW;
-    createCell.style.height = dynamicW;*/
+    //createCell.addEventListener("click", changeColor3);
     targetPPCanvas.appendChild(createCell);
     if(i % width === 0){
       targetPPCanvas.appendChild(document.createElement("br"));
