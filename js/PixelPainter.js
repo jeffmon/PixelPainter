@@ -139,6 +139,10 @@ console.log(saved[0].style.backgroundColor);
 rgbArray = [];
 
 function saveImage(){
+  if (rgbArray.length > 0){
+    rgbArray = [];
+    savedBox.innerHTML = "";
+  }
   var cells = document.getElementsByClassName("cell");
   for (var i = 0; i < saved.length; i++) {
     console.log(cells[i].style.backgroundColor);
@@ -154,6 +158,7 @@ function saveImage(){
       savedBox.appendChild(document.createElement("br"));
     }
   }
+
 }
 
 // function addImage(){
