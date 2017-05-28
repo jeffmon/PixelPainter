@@ -23,8 +23,6 @@ function randoColor(){
   return "rgb("+rr+","+gg+","+bb+")";
 }
 
-var colorArray = [randoColor(), randoColor(), randoColor()];
-
 function addColor(){
   lastColorPicked = this.style.backgroundColor;
   createCurrentColor.style.backgroundColor = lastColorPicked;
@@ -34,7 +32,6 @@ function addColor(){
   for (var i = 1; i < 26; i++){
     var createColorChoice = document.createElement("div");
     createColorChoice.className = "colorChoice";
-    var colorHelper = colorArray[i];
     createColorChoice.style.backgroundColor = randoColor();
     createColorChoice.addEventListener("click", addColor);
     colorPalette.appendChild(createColorChoice);
