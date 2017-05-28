@@ -6,6 +6,10 @@ var createPPCanvas = document.createElement("div");
 createPPCanvas.id = "pp-canvas";
 pixelPainter.appendChild(createPPCanvas);
 
+var createSavedBox = document.createElement("div");
+createSavedBox.id = "savedBox";
+pixelPainter.appendChild(createSavedBox);
+
 var createColorPalette = document.createElement("div");
 createColorPalette.id = "colorPalette";
 toolBox.appendChild(createColorPalette);
@@ -132,13 +136,34 @@ var saved = document.getElementsByClassName("cell");
 console.log(saved[0].style.backgroundColor);
 
 
+rgbArray = [];
+
 function saveImage(){
   var cells = document.getElementsByClassName("cell");
-  rgbArray = [];
-
   for (var i = 0; i < saved.length; i++) {
     console.log(cells[i].style.backgroundColor);
     rgbArray.push(cells[i].style.backgroundColor);
   }
-  console.log(rgbArray);
+
+  for (var j = 1; j <= rgbArray.length; j++){
+    var createCell = document.createElement("div");
+    createCell.className = "savedCell";
+    createCell.style.backgroundColor = rgbArray[j-1];
+    savedBox.appendChild(createCell);
+    if(j % 17 === 0){
+      savedBox.appendChild(document.createElement("br"));
+    }
+  }
 }
+
+// function addImage(){
+//   for (var i = 0; i < rgbArray.length; i++){
+//     var createCell = document.createElement("div");
+//     createCell.className = "saveCell";
+//     savedBox.appendChild(createCell);
+//     if(i % 17 === 0){
+//       savedBox.appendChild(document.createElement("br"));
+//     }
+//   }
+// }
+
