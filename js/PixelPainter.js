@@ -96,6 +96,17 @@ function clearAction(){
   }
 }
 
+function saveImage(){
+  var cells = document.getElementsByClassName("cell");
+  rgbArray = [];
+
+  for (var i = 0; i < saved.length; i++) {
+    console.log(cells[i].style.backgroundColor);
+    rgbArray.push(cells[i].style.backgroundColor);
+  }
+  console.log(rgbArray);
+}
+
 var createErase = document.createElement("button");
 createErase.className = "buttons";
 createErase.innerHTML = "Erase";
@@ -110,4 +121,24 @@ createClear.id = "clearButton";
 createClear.addEventListener("click", clearAction);
 options.appendChild(createClear);
 
+var createSave = document.createElement("button");
+createSave.className = "buttons";
+createSave.innerHTML = "Save";
+createSave.id = "saveButton";
+createSave.addEventListener("click", saveImage);
+options.appendChild(createSave);
 
+var saved = document.getElementsByClassName("cell");
+console.log(saved[0].style.backgroundColor);
+
+
+function saveImage(){
+  var cells = document.getElementsByClassName("cell");
+  rgbArray = [];
+
+  for (var i = 0; i < saved.length; i++) {
+    console.log(cells[i].style.backgroundColor);
+    rgbArray.push(cells[i].style.backgroundColor);
+  }
+  console.log(rgbArray);
+}
