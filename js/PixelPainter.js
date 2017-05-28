@@ -25,14 +25,10 @@ function randoColor(){
 
 var colorArray = [randoColor(), randoColor(), randoColor()];
 
-
-
 function addColor(){
   lastColorPicked = this.style.backgroundColor;
   createCurrentColor.style.backgroundColor = lastColorPicked;
 }
-
-
 
 (function(){
   for (var i = 1; i < 26; i++){
@@ -51,7 +47,6 @@ function addColor(){
 var createCurrentColor = document.createElement("div");
 createCurrentColor.id = "currentColor";
 createCurrentColor.style.backgroundColor = lastColorPicked;
-//createCurrentColor.innerHTML = "Current Color";
 colorPalette.appendChild(createCurrentColor);
 
 var targetPPCanvas = document.getElementById("pp-canvas");
@@ -75,19 +70,12 @@ function changeColor2(){
   }
 }
 
-//this.style.backgroundColor = lastColorPicked;
-
-/*function changeColor3(){
-  this.style.backgroundColor = "white";
-}*/
-
 function createCellBlocks(width, height){//create cell blocks
   for(var i = 1; i <= (width * height); i++){
     var createCell = document.createElement("div");
     createCell.className = "cell";
     createCell.addEventListener("mouseover", changeColor);
     createCell.addEventListener("click", changeColor2);
-    //createCell.addEventListener("click", changeColor3);
     targetPPCanvas.appendChild(createCell);
     if(i % width === 0){
       targetPPCanvas.appendChild(document.createElement("br"));
@@ -110,8 +98,6 @@ function clearAction(){
     createCurrentColor.style.backgroundColor = "white";
   }
 }
-
-
 
 var createErase = document.createElement("button");
 createErase.className = "buttons";
