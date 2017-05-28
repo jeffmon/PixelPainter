@@ -115,13 +115,15 @@ function clearAction(){
 
 var createErase = document.createElement("button");
 createErase.className = "buttons";
-createErase.innerHTML = "Eraser";
+createErase.innerHTML = "Erase";
+createErase.id = "eraseButton";
 createErase.addEventListener("click", eraserAction);
 options.appendChild(createErase);
 
 var createClear = document.createElement("button");
 createClear.className = "buttons";
 createClear.innerHTML = "Clear";
+createClear.id = "clearButton";
 createClear.addEventListener("click", clearAction);
 options.appendChild(createClear);
 

@@ -1,3 +1,26 @@
+h1{
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 75px;
+
+}
+
+.buttons{
+  position: relative;
+  padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+  border-radius: 10px;
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  color: #FFF;
+  text-decoration: none;
+  margin-left: 10px;
+  outline: none;
+}
+
+
+
 #pixelPainter{
   /*background-color: yellow;*/
   width: 1000px;
@@ -6,9 +29,21 @@
   margin: auto;
 }
 
+#eraseButton{
+  background-color: #F2CF66;
+  border-bottom: 5px solid #D1B358;
+  text-shadow: 0px -2px #D1B358;
+}
+
+#clearButton{
+  background-color: #E74C3C;
+  border-bottom: 5px solid #BD3E31;
+  text-shadow: 0px -2px #BD3E31;
+}
+
 #toolBox{
   /*background-color: blue;*/
-  width: 25%;
+  width: 20%;
   height: 90%;
   display: inline-block;
   margin-top: 20px;
@@ -41,8 +76,8 @@
 }
 
 .colorChoice{
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   background-color: white;
   border-style: solid;
   border-width: .5px;
@@ -72,4 +107,8 @@
   height: 100px;
   width: 100px;
   background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 20px;
+  margin-left: 29px;
 }
