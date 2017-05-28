@@ -1,7 +1,12 @@
+body{
+  background-color: #ADD8E6;
+}
+
 h1{
   text-align: center;
   font-family: 'Lobster', cursive;
   font-size: 75px;
+  margin: auto;
 
 }
 
@@ -80,7 +85,7 @@ h1{
   width: 30px;
   background-color: white;
   border-style: solid;
-  border-width: .5px;
+  border-width: 1px;
   display: inline-block;
 }
 
@@ -108,7 +113,7 @@ h1{
   width: 100px;
   background-color: white;
   border-style: solid;
-  border-width: 1px;
-  margin-top: 20px;
+  border-width: 2px;
+  margin-top: 30px;
   margin-left: 29px;
 }
