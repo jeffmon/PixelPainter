@@ -69,6 +69,9 @@ function changeColor2(){
   this.style.backgroundColor = lastColorPicked;
 }
 
+function changeColor3(){
+  this.style.backgroundColor = "white";
+}
 
 function createCellBlocks(width, height){//create cell blocks
   for(var i = 1; i <= (width * height); i++){
@@ -76,6 +79,7 @@ function createCellBlocks(width, height){//create cell blocks
     createCell.className = "cell";
     createCell.addEventListener("mouseover", changeColor);
     createCell.addEventListener("click", changeColor2);
+    createCell.addEventListener("click", changeColor3);
     var dynamicW = 100 / width-2 + "%";
     createCell.style.width = dynamicW;
     createCell.style.height = dynamicW;
@@ -86,17 +90,19 @@ function createCellBlocks(width, height){//create cell blocks
   }
 }
 
-createCellBlocks(12, 12);
+createCellBlocks(15, 15);
 
 var targetCell = document.getElementsByClassName("cell");
 
 function eraserAction(){
   lastColorPicked = "white";
+  createCurrentColor.style.backgroundColor = "white";
 }
 
 function clearAction(){
   for(var i = 0; i < targetCell.length; i++){
     targetCell[i].style.backgroundColor = "white";
+    createCurrentColor.style.backgroundColor = "white";
   }
 }
 
