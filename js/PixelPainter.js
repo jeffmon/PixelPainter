@@ -16,7 +16,16 @@ toolBox.appendChild(createOptions);
 
 var lastColorPicked = null;
 
-var colorArray = ['red', 'blue', 'black'];
+
+
+function randoColor(){
+  rr = Math.floor(Math.random() *255);
+  gg = Math.floor(Math.random() *255);
+  bb = Math.floor(Math.random() *255);
+  return "rgb("+rr+","+gg+","+bb+")";
+}
+
+var colorArray = [randoColor(), randoColor(), randoColor()];
 
 function addColor(){
   lastColorPicked = this.style.backgroundColor;
@@ -24,14 +33,17 @@ function addColor(){
 }
 
 (function(){
-  for (var i = 0; i < colorArray.length; i++){
+  for (var i = 1; i < 26; i++){
     var createColorChoice = document.createElement("div");
     createColorChoice.className = "colorChoice";
     var colorHelper = colorArray[i];
     console.log(colorHelper);
-    createColorChoice.style.backgroundColor = colorArray[i];
+    createColorChoice.style.backgroundColor = randoColor();
     createColorChoice.addEventListener("click", addColor);
     colorPalette.appendChild(createColorChoice);
+    if (i % 5 === 0){
+      colorPalette.appendChild(document.createElement("br"));
+    }
   }
 })();
 
@@ -57,4 +69,4 @@ function createCellBlocks(width, height){
   }
 }
 
-createCellBlocks(10, 10);
+createCellBlocks(5, 5);

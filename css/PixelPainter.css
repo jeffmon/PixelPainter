@@ -40,10 +40,11 @@
 }
 
 .colorChoice{
-  height: 30px;
-  width: 30px;
+  height: 15px;
+  width: 15px;
   background-color: white;
   border-style: solid;
+  display: inline-block;
 }
 
 .cell{
