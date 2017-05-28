@@ -46,10 +46,14 @@ function changeColor(){
   for(var i = 1; i <= 25; i++){
     var createCell = document.createElement("div");
     createCell.className = "cell";
+    console.log(changeColor);
     createCell.addEventListener("click", changeColor);
+    createCell.style.backgroundColor = "purple";
+    console.log(createCell);
     targetPPCanvas.appendChild(createCell);
     if(i % 5 === 0){
-      targetPPCanvas.innerHTML+= "<br>";
+      //targetPPCanvas.innerHTML+= "<br>";
+      targetPPCanvas.appendChild(document.createElement("br"));
     }
   }
 })();
