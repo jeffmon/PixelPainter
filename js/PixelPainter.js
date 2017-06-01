@@ -130,14 +130,16 @@ function clearAction(){
 }
 
 function saveImage(){
-  var cells = document.getElementsByClassName("cell");
-  rgbArray = [];
+  html2canvas((targetPPCanvas), {
+        onrendered: function(targetPPCanvas) {
+            var img = canvas.toDataURL();
+            window.open(img);
 
-  for (var i = 0; i < saved.length; i++) {
-    console.log(cells[i].style.backgroundColor);
-    rgbArray.push(cells[i].style.backgroundColor);
-  }
-  console.log(rgbArray);
+            var blob = new Blob(img, {type: "image/jpeg"});
+            var filesaver = saveAs(blob, "my image.png");
+      }
+    });
+
 }
 
 var createErase = document.createElement("button");
