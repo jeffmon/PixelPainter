@@ -101,11 +101,15 @@ function changeColor2(){
 }
 
 function createCellBlocks(width, height){//create cell blocks
+  var cellCounter = 0;
   for(var i = 1; i <= (width * height); i++){
     var createCell = document.createElement("div");
     createCell.className = "cell";
+    createCell.id = cellCounter;
+    cellCounter++;
     createCell.addEventListener("mouseover", changeColor);
     createCell.addEventListener("click", changeColor2);
+    createCell.addEventListener("dblclick", fillCell);
     targetPPCanvas.appendChild(createCell);
     if(i % width === 0){
       targetPPCanvas.appendChild(document.createElement("br"));
@@ -180,7 +184,7 @@ function saveImage(){
     console.log(cells[i].style.backgroundColor);
     rgbArray.push(cells[i].style.backgroundColor);
   }
-
+  console.log(rgbArray);
   for (var j = 1; j <= rgbArray.length; j++){
     var createCell = document.createElement("div");
     createCell.className = "savedCell";
@@ -193,5 +197,27 @@ function saveImage(){
 
 }
 
+// var lll = 20;
+// console.log(document.querySelector("#pp-canvas").childNodes[0].style.backgroundColor);
+// document.querySelector("#pp-canvas").childNodes[0].style.backgroundColor = "red";
+// document.querySelector("#pp-canvas").childNodes[lll+18].style.backgroundColor = "red";
+// document.querySelector("#pp-canvas").childNodes[lll].style.backgroundColor = "blue";
+// document.querySelector("#pp-canvas").childNodes[lll-18].style.backgroundColor = "yellow";
 
 
+
+function fillCell(){
+  var currectClickColor = this.style.backgroundColor;
+  var location = this.id;
+  console.log("loc = " +location);
+  var toChange = [];
+  document.querySelector("#pp-canvas").childNodes[location-1].style.backgroundColor = "red";
+  document.querySelector("#pp-canvas").childNodes[location+1].style.backgroundColor = "red";
+  document.querySelector("#pp-canvas").childNodes[location+18].style.backgroundColor = "red";
+
+  document.querySelector("#pp-canvas").childNodes[location-18].style.backgroundColor = "red";
+  document.querySelector("#pp-canvas").childNodes[location].style.backgroundColor = "red";
+
+
+
+};
