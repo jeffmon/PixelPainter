@@ -14,6 +14,9 @@ createSavedSection.id = "savedSection";
 pixelPainter.appendChild(createSavedSection);
 
 function restoreImage(){
+  if (savedBox.innerHTML !== ""){
+
+
   targetPPCanvas.innerHTML = "";
   savedRgbArray = [];
   var savedCells = document.getElementsByClassName("savedCell");
@@ -32,6 +35,7 @@ function restoreImage(){
       targetPPCanvas.appendChild(document.createElement("br"));
     }
   }
+}
 }
 
 var createSavedBox = document.createElement("div");
@@ -199,25 +203,29 @@ function saveImage(){
 
 // var lll = 20;
 // console.log(document.querySelector("#pp-canvas").childNodes[0].style.backgroundColor);
-// document.querySelector("#pp-canvas").childNodes[0].style.backgroundColor = "red";
+// document.querySelector("#pp-canvas").childNodes[lll+1].style.backgroundColor = "red";
 // document.querySelector("#pp-canvas").childNodes[lll+18].style.backgroundColor = "red";
-// document.querySelector("#pp-canvas").childNodes[lll].style.backgroundColor = "blue";
-// document.querySelector("#pp-canvas").childNodes[lll-18].style.backgroundColor = "yellow";
+// document.querySelector("#pp-canvas").childNodes[lll].style.backgroundColor = "red";
+// document.querySelector("#pp-canvas").childNodes[lll-18].style.backgroundColor = "red";
+// document.querySelector("#pp-canvas").childNodes[lll-1].style.backgroundColor = "red";
 
 
 
 function fillCell(){
   var currectClickColor = this.style.backgroundColor;
   var location = this.id;
-  console.log("loc = " +location);
+  var helperAdder = parseInt(location/17);//hack around counting br's
+  console.log("ha =" + helperAdder);
+  console.log("loc = " + location);
   var toChange = [];
-  document.querySelector("#pp-canvas").childNodes[location-1].style.backgroundColor = "red";
-  document.querySelector("#pp-canvas").childNodes[location+1].style.backgroundColor = "red";
-  document.querySelector("#pp-canvas").childNodes[location+18].style.backgroundColor = "red";
+  //console.log(document.querySelector("pp-canvas").childNodes)
+  document.querySelector("#pp-canvas").childNodes[parseInt(location)-1+helperAdder].style.backgroundColor = "red";
+  document.querySelector("#pp-canvas").childNodes[parseInt(location)+1+helperAdder].style.backgroundColor = "red";
+  document.querySelector("#pp-canvas").childNodes[parseInt(location)+18+helperAdder].style.backgroundColor = "red";
 
-  document.querySelector("#pp-canvas").childNodes[location-18].style.backgroundColor = "red";
-  document.querySelector("#pp-canvas").childNodes[location].style.backgroundColor = "red";
+  document.querySelector("#pp-canvas").childNodes[parseInt(location)-18+helperAdder].style.backgroundColor = "red";
+  document.querySelector("#pp-canvas").childNodes[parseInt(location)+helperAdder].style.backgroundColor = "red";
 
 
 
-};
+}
