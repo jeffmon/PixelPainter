@@ -15,27 +15,25 @@ pixelPainter.appendChild(createSavedSection);
 
 function restoreImage(){
   if (savedBox.innerHTML !== ""){
+    targetPPCanvas.innerHTML = "";
+    savedRgbArray = [];
+    var savedCells = document.getElementsByClassName("savedCell");
+    for (var i = 0; i < savedCells.length; i++) {
+      savedRgbArray.push(savedCells[i].style.backgroundColor);
+    }
 
-
-  targetPPCanvas.innerHTML = "";
-  savedRgbArray = [];
-  var savedCells = document.getElementsByClassName("savedCell");
-  for (var i = 0; i < savedCells.length; i++) {
-    savedRgbArray.push(savedCells[i].style.backgroundColor);
-  }
-
-  for (var j = 1; j <= savedRgbArray.length; j++){
-    var createCell = document.createElement("div");
-    createCell.className = "cell";
-    createCell.style.backgroundColor = savedRgbArray[j-1];
-    createCell.addEventListener("mouseover", changeColor);
-    createCell.addEventListener("click", changeColor2);
-    targetPPCanvas.appendChild(createCell);
-    if(j % 17 === 0){
-      targetPPCanvas.appendChild(document.createElement("br"));
+    for (var j = 1; j <= savedRgbArray.length; j++){
+      var createCell = document.createElement("div");
+      createCell.className = "cell";
+      createCell.style.backgroundColor = savedRgbArray[j-1];
+      createCell.addEventListener("mouseover", changeColor);
+      createCell.addEventListener("click", changeColor2);
+      targetPPCanvas.appendChild(createCell);
+      if(j % 17 === 0){
+        targetPPCanvas.appendChild(document.createElement("br"));
+      }
     }
   }
-}
 }
 
 var createSavedBox = document.createElement("div");
