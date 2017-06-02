@@ -78,8 +78,8 @@ h1{
 
 #pp-canvas{
   /*background-color: red;*/
-  width: 66%;
-  height: 68%;
+  width: 65%;
+  height: 65%;
   display: inline-block;
   vertical-align: top;
 }
@@ -105,8 +105,9 @@ h1{
   height: 30px;
   width: 30px;
   background-color: white;
-  border-style: solid;
-  border-width: 1px;
+  border-style: dotted;
+  border-width: 0.5px;
+  border-color: grey;
   display: inline-block;
 }
 
@@ -114,8 +115,9 @@ h1{
   height: 35px;
   width: 35px;
   background-color: white;
-  border-style: solid;
-  border-width: 1.5px;
+  border-style: dotted;
+  border-width: 1px;
+  border-color: grey;
   display: inline-block;
   vertical-align: top;
 }
@@ -145,6 +147,7 @@ h1{
   display: inline-block;
   vertical-align: top;
   background-color: white;
-  border-style: solid;
-  border-width: .1px;
+
+  border-width: 0.05px;
+  border-color: grey;
 }
